@@ -39,6 +39,8 @@ namespace HstCalculator
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbProvinces = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -49,30 +51,29 @@ namespace HstCalculator
             this.label1.Size = new System.Drawing.Size(51, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Subtotal";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 55);
+            this.label2.Location = new System.Drawing.Point(12, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "HST";
+            this.label2.Text = "GST/HST";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 85);
+            this.label3.Location = new System.Drawing.Point(12, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 2;
-            this.label3.Text = "HST Total";
+            this.label3.Text = "GST/HST Total";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 115);
+            this.label4.Location = new System.Drawing.Point(12, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 15);
             this.label4.TabIndex = 3;
@@ -87,7 +88,7 @@ namespace HstCalculator
             // 
             // txtHst
             // 
-            this.txtHst.Location = new System.Drawing.Point(156, 47);
+            this.txtHst.Location = new System.Drawing.Point(156, 75);
             this.txtHst.Name = "txtHst";
             this.txtHst.ReadOnly = true;
             this.txtHst.Size = new System.Drawing.Size(100, 23);
@@ -96,7 +97,7 @@ namespace HstCalculator
             // 
             // txtHstTotal
             // 
-            this.txtHstTotal.Location = new System.Drawing.Point(156, 77);
+            this.txtHstTotal.Location = new System.Drawing.Point(156, 104);
             this.txtHstTotal.Name = "txtHstTotal";
             this.txtHstTotal.ReadOnly = true;
             this.txtHstTotal.Size = new System.Drawing.Size(100, 23);
@@ -104,7 +105,7 @@ namespace HstCalculator
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(156, 107);
+            this.txtTotal.Location = new System.Drawing.Point(156, 133);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 23);
@@ -112,7 +113,7 @@ namespace HstCalculator
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(12, 136);
+            this.btnCalculate.Location = new System.Drawing.Point(12, 164);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 8;
@@ -122,7 +123,7 @@ namespace HstCalculator
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(181, 136);
+            this.btnExit.Location = new System.Drawing.Point(181, 164);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 9;
@@ -130,11 +131,33 @@ namespace HstCalculator
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // cbProvinces
+            // 
+            this.cbProvinces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProvinces.FormattingEnabled = true;
+            this.cbProvinces.Location = new System.Drawing.Point(156, 46);
+            this.cbProvinces.Name = "cbProvinces";
+            this.cbProvinces.Size = new System.Drawing.Size(100, 23);
+            this.cbProvinces.TabIndex = 10;
+            this.cbProvinces.SelectedIndexChanged += new System.EventHandler(this.cbProvinces_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 15);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Province";
+         
+            // 
             // frmHstTotal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 178);
+            this.ClientSize = new System.Drawing.Size(279, 218);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbProvinces);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtTotal);
@@ -164,6 +187,8 @@ namespace HstCalculator
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnCalculate;
         public System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbProvinces;
+        private System.Windows.Forms.Label label5;
     }
 }
 
