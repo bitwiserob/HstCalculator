@@ -29,6 +29,7 @@ namespace HstCalculator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHstTotal));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -217,6 +218,8 @@ namespace HstCalculator
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnExit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHstTotal";
             this.Text = "Hst Calculator";
             this.groupBox1.ResumeLayout(false);
