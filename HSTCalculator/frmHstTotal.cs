@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 
 namespace HstCalculator
@@ -9,7 +9,7 @@ namespace HstCalculator
     {
         //List of provinces
         private string[] provinces = { "ON", "BC", "QC", "AB", "SK", "MB", "YT", "NB", "NS", "NL", "NT", "NU", "PE", };
-        
+
         //Dictionary with provinces and tax rates
         private Dictionary<string, decimal> provinceRates = new Dictionary<string, decimal>()
             {
@@ -27,19 +27,18 @@ namespace HstCalculator
                 {"NU", .05m},
                 {"PE", .15m},
             };
-        
-
 
 
         public frmHstTotal()
         {
             InitializeComponent();
-            foreach (string province in provinces )
+            foreach (string province in provinces)
             {
                 cbProvinces.Items.Add(province);
             }
             cbProvinces.SelectedIndex = 0;
             txtHst.Text = provinceRates[provinces[0]].ToString("p1");
+            rdBefore.Checked = true;
 
         }
 
@@ -50,11 +49,21 @@ namespace HstCalculator
             decimal subtotal = Convert.ToDecimal(txtSubtotal.Text);
             decimal hst = provinceRates[provinces[cbProvinces.SelectedIndex]];
             decimal hstTotal = subtotal * hst;
-            decimal total = subtotal + hstTotal;
+            decimal total;
+            //check radio button
+            if (rdBefore.Checked)
+            {
+                total = subtotal + hstTotal;
+            }
+            else
+            {
+                total = subtotal / (hst + 1);
+            }
 
             //Setting values in input fields
             txtHstTotal.Text = hstTotal.ToString("c");
             txtTotal.Text = total.ToString("c");
+
 
             //Focus on the subtotal field
             txtSubtotal.Focus();
@@ -70,7 +79,8 @@ namespace HstCalculator
         private void cbProvinces_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtHst.Text = provinceRates[provinces[cbProvinces.SelectedIndex]].ToString("p1");
-
         }
+
+
     }
 }
