@@ -89,13 +89,16 @@ namespace HstCalculator
             // 
             this.txtHst.Location = new System.Drawing.Point(156, 47);
             this.txtHst.Name = "txtHst";
+            this.txtHst.ReadOnly = true;
             this.txtHst.Size = new System.Drawing.Size(100, 23);
             this.txtHst.TabIndex = 5;
+            this.txtHst.Text = "13.0%";
             // 
             // txtHstTotal
             // 
             this.txtHstTotal.Location = new System.Drawing.Point(156, 77);
             this.txtHstTotal.Name = "txtHstTotal";
+            this.txtHstTotal.ReadOnly = true;
             this.txtHstTotal.Size = new System.Drawing.Size(100, 23);
             this.txtHstTotal.TabIndex = 6;
             // 
@@ -103,6 +106,7 @@ namespace HstCalculator
             // 
             this.txtTotal.Location = new System.Drawing.Point(156, 107);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 23);
             this.txtTotal.TabIndex = 7;
             // 
@@ -114,6 +118,7 @@ namespace HstCalculator
             this.btnCalculate.TabIndex = 8;
             this.btnCalculate.Text = "&Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // btnExit
             // 
@@ -123,6 +128,7 @@ namespace HstCalculator
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmHstTotal
             // 
