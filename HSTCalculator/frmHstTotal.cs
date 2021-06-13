@@ -46,29 +46,57 @@ namespace HstCalculator
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             //Math for calculating hst   
-            decimal subtotal = Convert.ToDecimal(txtSubtotal.Text);
-            decimal hst = provinceRates[provinces[cbProvinces.SelectedIndex]];
-            decimal hstTotal = subtotal * hst;
-            decimal total;
-            //check radio button
-            if (rdBefore.Checked)
-            {
-                total = subtotal + hstTotal;
+            if(isValid())
+            { 
+                decimal subtotal = Convert.ToDecimal(txtSubtotal.Text);
+                decimal hst = provinceRates[provinces[cbProvinces.SelectedIndex]];
+                decimal hstTotal = subtotal * hst;
+                decimal total;
+                //check radio button
+                if (rdBefore.Checked)
+                {
+                    total = subtotal + hstTotal;
+                }
+                else
+                {
+                    total = subtotal / (hst + 1);
+                }
+
+                //Setting values in input fields
+                txtHstTotal.Text = hstTotal.ToString("c");
+                txtTotal.Text = total.ToString("c");
+
+
+                //Focus on the subtotal field
+                txtSubtotal.Focus();
             }
-            else
-            {
-                total = subtotal / (hst + 1);
-            }
-
-            //Setting values in input fields
-            txtHstTotal.Text = hstTotal.ToString("c");
-            txtTotal.Text = total.ToString("c");
-
-
-            //Focus on the subtotal field
-            txtSubtotal.Focus();
-
         }
+
+        private bool isValid()
+        {
+            bool valid = true;
+            string errorMessage = "";
+
+            errorMessage += IsDecimal(txtSubtotal.Text);
+            if (errorMessage != "")
+            {
+                valid = false;
+                MessageBox.Show(errorMessage, "Entry Error");
+            }
+
+            return valid;
+        }
+
+        private string IsDecimal(string value)
+        {
+            string msg = "";
+            if (!Decimal.TryParse(value, out _))
+            {
+                msg += "Subtotal must be a valid decimal value.\n";
+            }
+            return msg;
+        }
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
